@@ -1,0 +1,109 @@
+<nav id = "navbar">
+    <h1>AP</h1>
+    <ol class = "nav-buttons">
+        <li><a href = "/#about">About</a></li>
+        <li><a href = "/#projects">Projects</a></li>
+        <li><a href = "/#experience">Experience</a></li>
+        <li><a href = "/#contact">Contact</a></li>
+        <li><a href = "/resume.pdf">Resume</a></li>
+    </ol>
+</nav>
+<script>
+    const navbar = document.getElementById("navbar")
+    let lastPosition = 0
+    let ticking = false
+    document.addEventListener("scroll", e => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                if (window.scrollY-lastPosition > 0) {
+                    navbar.classList.add("hidden")
+                }
+                else {
+                    navbar.classList.remove("hidden")
+                }
+                lastPosition = window.scrollY
+                ticking = false
+            })
+            ticking = true
+        }
+    })
+</script>
+<style>
+    #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-height: var(--nav-height);
+        background-color: #F6F6F6;
+        padding: 0 50px;
+        transition: transform 0.25s cubic-bezier(0.645,0.045,0.355,1);
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    #navbar.hidden {
+        transform: translateY(calc(-1 * var(--nav-height)));
+    }
+    .nav-buttons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .nav-buttons li {
+        list-style: none;
+        position: relative;
+    }
+    li::after {
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        bottom: -4px;
+        left: 0;
+        transition: width 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    }
+    li:hover::after {
+        width: 100%;
+    }
+    .nav-buttons li a {
+        display: block;
+        animation: reveal 1s forwards;
+        animation-timing-function: cubic-bezier(0.645,0.045,0.355,1);
+        text-decoration: none;
+        transform: translateY(-50px);
+        color: var(--primary);
+    }
+    .nav-buttons li:nth-child(2) > a {
+        animation-delay: 100ms;
+    }
+    .nav-buttons li:nth-child(3) > a {
+        animation-delay: 200ms;
+    }
+    .nav-buttons li:nth-child(4) > a {
+        animation-delay: 300ms;
+    }
+    .nav-buttons li:nth-child(5) > a {
+        animation-delay: 400ms;
+    }
+    @keyframes reveal {
+        0% {
+            transform: translateY(-50px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        #navbar {
+            padding: 0 35px;
+        }
+    }
+    @media only screen and (max-width: 576px) {
+        #navbar {
+            padding: 0 25px;
+        }
+    }
+</style>
