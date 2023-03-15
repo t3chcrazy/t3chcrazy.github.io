@@ -1,0 +1,45 @@
+<section id = "about-me" class = "fullHeightSection">
+    <h1 class = "sectionHeader">About me</h1>
+    <div class = "aboutMeSection">
+        <aside>
+            Hi! My name is Abhishek Prashant and I enjoy creating delightful experiences for people through code.
+            I got interested in app development after following a <a href = "https://fullstackopen.com/en/" target = "_blank">free course</a> online
+            and got fully committed to it. Now I have recently started taking an interest in backend development as well to become a well rounded developer<br />
+            I am 
+        </aside>
+        <aside>
+            <img src = "/favicon.svg" alt = "My photo" />
+        </aside>
+    </div>
+</section>
+<style>
+    #about-me {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+    .aboutMeSection {
+        display: flex;
+        justify-content: center;
+        line-height: 1.45;
+        color: var(--text-black);
+    }
+    .aboutMeSection > * {
+        flex: 1;
+    }
+    img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+    }
+    @media only screen and (max-width: 768px) {
+        .aboutMeSection {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+        img {
+            width: 250px;
+            height: 250px;
+        }
+    }
+</style>

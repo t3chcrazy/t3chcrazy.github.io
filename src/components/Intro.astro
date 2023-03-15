@@ -1,7 +1,13 @@
 <section id = "intro">
-    <h3>Hi there! 👋</h3>
-    <h1>I am Abhishek Prashant</h1>
-    <h2>A <span class = "text-gradient">software engineer</span> by profession</h2>
+    <div class = "slideWrapper">
+        <h2>Hey there! 👋</h2>
+    </div>
+    <div class = "slideWrapper">
+        <h1>I am Abhishek Prashant</h1>
+    </div>
+    <div class = "slideWrapper">
+        <h2>A <span class = "text-gradient">software engineer</span> by profession</h2>
+    </div>
 </section>
 <style>
     #intro {
@@ -12,10 +18,31 @@
         flex-direction: column;
         justify-content: center;
     }
-    h1 {
-        font-size: clamp(30px, 7vw, 70px);
+    @keyframes revealHeader {
+        0% {
+            transform: translateY(-100%);
+        }
+        100% {
+            transform: translateY(0px);
+        }
     }
-    h3 {
+    .slideWrapper {
+        overflow-y: hidden;
+        position: relative;
+    }
+    .slideWrapper > h1, h2 {
+        animation: revealHeader 0.65s forwards cubic-bezier(0.645,0.045,0.355,1);
+        transform: translateY(-100%);
+    }
+    .slideWrapper:first-child h2 {
+        animation-delay: 600ms;
+    }
+    .slideWrapper h1 {
+        font-size: clamp(30px, 7vw, 70px);
         color: var(--primary);
+        animation-delay: 700ms;
+    }
+    .slideWrapper:last-child h2 {
+        animation-delay: 800ms;
     }
 </style>

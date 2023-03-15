@@ -26,16 +26,60 @@ const { title } = Astro.props;
 		--nav-height: 100px;
 		/** Theme */
 		--primary: #6ab04c;
+		--text-black: #2f3542;
+		--text-gray: #a4b0be;
 	}
 	h1,h2,h3,h4,h5,h6 {
 		margin: 0;
 	}
+	h1.sectionHeader {
+		margin: 30px 0 40px;
+		padding-right: 20px;
+		position: relative;
+		z-index: 2;
+		background-color: #F6F6F6;
+		display: flex;
+		align-items: center;
+		color: var(--text-black);
+	}
+	h1.sectionHeader::after {
+		content: " ";
+		display: block;
+		position: relative;
+		height: 1px;
+		width: 50%;
+		background-color: var(--text-gray);
+		margin-left: 10px;
+	}
 	html {
 		font-family: system-ui, sans-serif;
 		background-color: #F6F6F6;
+		scroll-behavior: smooth;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+	.fullHeightSection {
+		height: 100vh;
+	}
+	a {
+		display: inline-block;
+		position: relative;
+		text-decoration: none;
+		color: var(--primary);
+	}
+	a::after {
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        bottom: -4px;
+        left: 0;
+        transition: width 0.25s cubic-bezier(0.645,0.045,0.355,1);
+    }
+    a:hover::after {
+        width: 100%;
+    }
 </style>

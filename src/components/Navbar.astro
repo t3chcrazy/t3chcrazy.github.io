@@ -1,9 +1,9 @@
 <nav id = "navbar">
     <h1>AP</h1>
     <ol class = "nav-buttons">
-        <li><a href = "/#about">About</a></li>
-        <li><a href = "/#projects">Projects</a></li>
+        <li><a href = "/#about-me">About</a></li>
         <li><a href = "/#experience">Experience</a></li>
+        <li><a href = "/#projects">Projects</a></li>
         <li><a href = "/#contact">Contact</a></li>
         <li><a href = "/resume.pdf">Resume</a></li>
     </ol>
@@ -54,19 +54,6 @@
     .nav-buttons li {
         list-style: none;
         position: relative;
-    }
-    li::after {
-        content: " ";
-        position: absolute;
-        width: 0;
-        height: 2px;
-        background-color: var(--primary);
-        bottom: -4px;
-        left: 0;
-        transition: width 0.25s cubic-bezier(0.645,0.045,0.355,1);
-    }
-    li:hover::after {
-        width: 100%;
     }
     .nav-buttons li a {
         display: block;
