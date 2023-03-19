@@ -11,5 +11,8 @@
 	},
 	"dependencies": {
 		"astro": "^2.0.18"
+	},
+	"devDependencies": {
+		"@jasikpark/astro-svg-loader": "^0.1.0"
 	}
 }

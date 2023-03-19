@@ -1,11 +1,31 @@
-<section id = "about-me" class = "fullHeightSection">
+---
+const SKILLS = {
+    Languages: ["HTML", "CSS", "JavaScript", "Python", "Dart"],
+    Frameworks: ["React", "React-Native", "Flutter", "Bootstrap", "Svelte", "Astro"],
+    Tools: ["Jira", "Figma", "Jenkins"]
+}
+---
+<section id = "aboutMeSection" class = "fullHeightSection">
     <h1 class = "sectionHeader">About me</h1>
     <div class = "aboutMeSection">
         <aside>
-            Hi! My name is Abhishek Prashant and I enjoy creating delightful experiences for people through code.
-            I got interested in app development after following a <a href = "https://fullstackopen.com/en/" target = "_blank">free course</a> online
-            and got fully committed to it. Now I have recently started taking an interest in backend development as well to become a well rounded developer<br />
-            I am 
+            <div>
+                Hi! My name is Abhishek Prashant and I enjoy creating delightful experiences for people through code.
+                I got interested in app development after following a <a class = "underlineLink" href = "https://fullstackopen.com/en/" target = "_blank">free course</a> online
+                and got fully committed to it. Now I have recently started taking an interest in backend development as well to become a well rounded developer<br />
+                I am looking forward to grow as a developer
+            </div>
+            <h3>Skills</h3>
+            <div class = "skillSection">
+                {Object.keys(SKILLS).map(key => (
+                    <div class = "subSection">
+                        <h4>{key}</h4>
+                        <ul>
+                            {SKILLS[key].map((skill: string) => <li>{skill}</li>)}
+                        </ul>
+                    </div>
+                ))}
+            </div>
         </aside>
         <aside>
             <img src = "/favicon.svg" alt = "My photo" />
@@ -20,17 +40,34 @@
     }
     .aboutMeSection {
         display: flex;
-        justify-content: center;
+        column-gap: 30px;
         line-height: 1.45;
-        color: var(--text-black);
+        color: var(--primary);
     }
-    .aboutMeSection > * {
+    .skillSection {
+        display: flex;
+        column-gap: 30px;
+    }
+    aside:first-child {
         flex: 1;
     }
-    img {
+    aside:last-child, img {
         width: 300px;
         height: 300px;
         object-fit: cover;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    li::before {
+        content: "✔ ";
+        width: 10px;
+        color: var(--brand-green);
+    }
+    h3 {
+        margin-top: 3rem;
+        margin-bottom: 2rem;  
     }
     @media only screen and (max-width: 768px) {
         .aboutMeSection {
@@ -40,6 +77,11 @@
         img {
             width: 250px;
             height: 250px;
+        }
+        aside:last-child, img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
         }
     }
 </style>

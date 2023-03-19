@@ -1,0 +1,117 @@
+---
+const { companyDescription: { tenure, designations, skillsUsed }, companyName, isActive } = Astro.props
+---
+<div class = "jobSection">
+    <div class = "circleRow">
+        <div class:list={["bulletCircle", { active: isActive }]}></div>
+        <div class = "jobSectionHeader">
+            <h2>{companyName}</h2>
+            <div>{tenure}</div>
+        </div>
+    </div>
+    <div class = "jobContent">
+        {designations.map((designation: any) => (
+            <div>
+                <h3>{designation.title}</h3>
+                <ul class = "responsibilities">
+                    {designation.responsibilities.map(resp => (
+                        <li>{resp}</li>
+                    ))}
+                </ul>
+            </div>
+        ))}
+        <h3 class = "skillHeader">Skills Used</h3>
+        <ul class = "skillContainer">
+            {skillsUsed.map((skill: string) => <li>{skill}</li>)}
+        </ul>
+    </div>
+</div>
+<style>
+    :root {
+        --circleSize: 30px;
+        --horizontalSpacing: 1rem;
+        --borderWidth: 2px;
+        --secondary-color: #22a6b3;
+        counter-reset: jobCounter;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    .responsibilities {
+        padding-left: 1rem;
+    }
+    .responsibilities > li::before {
+        content: "✔ ";
+        color: var(--brand-green);
+    }
+    .circleRow {
+        display: flex;
+        align-items: center;
+    }
+    .bulletCircle {
+        width: var(--circleSize);
+        height: var(--circleSize);
+        border-radius: calc(var(--circleSize) / 2);
+        display: grid;
+        place-items: center;
+        counter-increment: jobCounter;
+        content: counter(jobCounter);
+        background-color: var(--secondary-color);
+        position: relative;
+    }
+    .jobSectionHeader {
+        padding-left: var(--horizontalSpacing);
+    }
+    .bulletCircle.active {
+        background-color: var(--brand-green);
+    }
+    .bulletCircle.active::before {
+        background-color: var(--brand-green);
+        opacity: 0.5;
+        content: " ";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        animation: 1s infinite 0s pulse;
+        z-index: -1;
+    }
+    .skillContainer {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .skillContainer > * {
+        padding: 5px 15px;
+        border-radius: 20px;
+        background-color: var(--brand-green);
+        color: white;
+    }
+    .jobContent {
+        padding: 1rem 0;
+        padding-left: calc(var(--circleSize) / 2 - var(--borderWidth) / 2 + var(--horizontalSpacing));
+        margin: 1rem 0;
+        margin-left: calc(var(--circleSize) / 2 - var(--borderWidth) / 2);
+    }
+    .jobSection:not(:last-child) .jobContent {
+        border-left: var(--borderWidth) solid var(--secondary-color);
+    }
+    .skillHeader {
+        margin-bottom: 10px;
+    }
+    h2, h3 {
+        color: var(--secondary) !important;
+    }
+    @keyframes pulse {
+        0% {
+            opacity: 0.5;
+            scale: 1;
+        }
+        100% {
+            opacity: 0;
+            scale: 2;
+        }
+    }
+</style>

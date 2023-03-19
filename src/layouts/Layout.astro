@@ -25,9 +25,10 @@ const { title } = Astro.props;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 		--nav-height: 100px;
 		/** Theme */
-		--primary: #6ab04c;
-		--text-black: #2f3542;
-		--text-gray: #a4b0be;
+		--brand-green: #05c46b;
+		--primary: #34495e;
+		--secondary: #7f8c8d;
+		--contentHorizontalSpacing: 0 50px;
 	}
 	h1,h2,h3,h4,h5,h6 {
 		margin: 0;
@@ -40,7 +41,7 @@ const { title } = Astro.props;
 		background-color: #F6F6F6;
 		display: flex;
 		align-items: center;
-		color: var(--text-black);
+		color: var(--primary);
 	}
 	h1.sectionHeader::after {
 		content: " ";
@@ -48,13 +49,14 @@ const { title } = Astro.props;
 		position: relative;
 		height: 1px;
 		width: 50%;
-		background-color: var(--text-gray);
+		background-color: var(--secondary);
 		margin-left: 10px;
 	}
 	html {
 		font-family: system-ui, sans-serif;
 		background-color: #F6F6F6;
 		scroll-behavior: smooth;
+		color: var(--primary);
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
@@ -63,23 +65,42 @@ const { title } = Astro.props;
 	.fullHeightSection {
 		height: 100vh;
 	}
-	a {
+	a.underlineLink {
 		display: inline-block;
 		position: relative;
 		text-decoration: none;
-		color: var(--primary);
+		color: var(--brand-green);
 	}
-	a::after {
+	a.underlineLink::after {
         content: " ";
         position: absolute;
         width: 0;
-        height: 2px;
-        background-color: var(--primary);
-        bottom: -4px;
+        height: 1px;
+        background-color: var(--brand-green);
+        bottom: -2.5px;
         left: 0;
         transition: width 0.25s cubic-bezier(0.645,0.045,0.355,1);
     }
     a:hover::after {
         width: 100%;
+    }
+	section[id$='Section']:not(:first-child) {
+		opacity: 0;
+		transform: translateX(-50px);
+		transition: 0.5s all;
+	}
+	section[id$='Section']:not(:first-child).revealed {
+		transform: translateX(0px);
+		opacity: 1;
+	}
+	@media only screen and (max-width: 768px) {
+        :root {
+            --contentHorizontalSpacing: 0 35px;
+        }
+    }
+    @media only screen and (max-width: 576px) {
+        :root {
+            --contentHorizontalSpacing: 0 25px;
+        }
     }
 </style>

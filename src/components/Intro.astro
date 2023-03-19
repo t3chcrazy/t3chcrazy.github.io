@@ -1,4 +1,4 @@
-<section id = "intro">
+<section id = "introSection" class = "fullHeightSection">
     <div class = "slideWrapper">
         <h2>Hey there! 👋</h2>
     </div>
@@ -10,9 +10,7 @@
     </div>
 </section>
 <style>
-    #intro {
-        height: 100vh;
-        height: 100vh;
+    #introSection {
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
@@ -25,6 +23,9 @@
         100% {
             transform: translateY(0px);
         }
+    }
+    .slideWrapper:first-child > h2 {
+        color: var(--primary);
     }
     .slideWrapper {
         overflow-y: hidden;
@@ -39,7 +40,7 @@
     }
     .slideWrapper h1 {
         font-size: clamp(30px, 7vw, 70px);
-        color: var(--primary);
+        color: var(--secondary);
         animation-delay: 700ms;
     }
     .slideWrapper:last-child h2 {

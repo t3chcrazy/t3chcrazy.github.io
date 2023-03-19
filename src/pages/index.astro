@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Intro from '../components/Intro.astro';
 import AboutMe from '../components/AboutMe.astro';
+import Experience from '../components/Experience.astro';
+import Contact from '../components/Contact.astro';
 ---
 
 <Layout title="Portfolio - Abhishek Prashant">
@@ -10,12 +12,32 @@ import AboutMe from '../components/AboutMe.astro';
 	<main>
 		<Intro />
 		<AboutMe />
+		<Experience />
+		<Contact />
 	</main>
 </Layout>
+<script>
+	window.scrollTo({
+		top: 0
+	})
+	const bottomSections = Array.from(document.querySelectorAll("section[id$=Section]")).slice(1)
+	bottomSections.forEach(bottomSection => {
+		const observer = new IntersectionObserver((entries, obs) => {
+			if (entries[0].isIntersecting) {
+				bottomSection.classList.add("revealed")
+				obs.disconnect()
+			}
+		}, {
+			threshold: 0.6
+		})
+		observer.observe(bottomSection)
+	})
+</script>
 <style>
 	main {
 		margin: auto;
 		max-width: 1000px;
+		padding: var(--contentHorizontalSpacing);
 	}
 	h1 {
 		font-size: 3rem;

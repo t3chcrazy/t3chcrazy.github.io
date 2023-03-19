@@ -1,22 +1,38 @@
+---
+import Svg from '@jasikpark/astro-svg-loader'
+---
 <nav id = "navbar">
     <h1>AP</h1>
-    <ol class = "nav-buttons">
-        <li><a href = "/#about-me">About</a></li>
-        <li><a href = "/#experience">Experience</a></li>
-        <li><a href = "/#projects">Projects</a></li>
-        <li><a href = "/#contact">Contact</a></li>
-        <li><a href = "/resume.pdf">Resume</a></li>
-    </ol>
+    <ul id = "nav-buttons">
+        <li><a class = "underlineLink" href = "/#aboutMeSection">About</a></li>
+        <li><a class = "underlineLink" href = "/#experienceSection">Experience</a></li>
+        <li><a class = "underlineLink" href = "/#projects">Projects</a></li>
+        <li><a  class = "underlineLink"href = "/#contactSection">Contact</a></li>
+        <li><a class = "underlineLink" href = "/resume.pdf">Resume</a></li>
+    </ul>
+    <button id = "menu">
+        <Svg
+            src = {import("../images/hamburger-menu.svg?raw")}
+            aria-label = "Menu"
+        />
+    </button>
 </nav>
 <script>
     const navbar = document.getElementById("navbar")
+    const menu = document.getElementById("menu")
+    const navList = document.getElementById("nav-buttons")
     let lastPosition = 0
     let ticking = false
     document.addEventListener("scroll", e => {
         if (!ticking) {
             requestAnimationFrame(() => {
-                if (window.scrollY-lastPosition > 0) {
-                    navbar.classList.add("hidden")
+                if (window.innerWidth >= 768) {
+                    if (window.scrollY-lastPosition > 0) {
+                        navbar.classList.add("hidden")
+                    }
+                    else {
+                        navbar.classList.remove("hidden")
+                }
                 }
                 else {
                     navbar.classList.remove("hidden")
@@ -27,15 +43,23 @@
             ticking = true
         }
     })
+    menu.addEventListener("click", () => {
+        navList.classList.toggle("revealed")
+    })
 </script>
 <style>
+    :root {
+        --menu-size: 40px;
+    }
     #navbar {
         display: flex;
+        z-index: 100;
         justify-content: space-between;
+        backdrop-filter: blur(10px);
         align-items: center;
         max-height: var(--nav-height);
         background-color: #F6F6F6;
-        padding: 0 50px;
+        padding: var(--contentHorizontalSpacing);
         transition: transform 0.25s cubic-bezier(0.645,0.045,0.355,1);
         position: fixed;
         top: 0;
@@ -46,34 +70,38 @@
     #navbar.hidden {
         transform: translateY(calc(-1 * var(--nav-height)));
     }
-    .nav-buttons {
+    #nav-buttons {
         display: flex;
         align-items: center;
         gap: 20px;
+        padding: 0;
     }
-    .nav-buttons li {
+    #nav-buttons li {
         list-style: none;
         position: relative;
     }
-    .nav-buttons li a {
+    #nav-buttons li a {
         display: block;
         animation: reveal 1s forwards;
         animation-timing-function: cubic-bezier(0.645,0.045,0.355,1);
         text-decoration: none;
         transform: translateY(-50px);
-        color: var(--primary);
+        color: var(--brand-green);
     }
-    .nav-buttons li:nth-child(2) > a {
+    #nav-buttons li:nth-child(2) > a {
         animation-delay: 100ms;
     }
-    .nav-buttons li:nth-child(3) > a {
+    #nav-buttons li:nth-child(3) > a {
         animation-delay: 200ms;
     }
-    .nav-buttons li:nth-child(4) > a {
+    #nav-buttons li:nth-child(4) > a {
         animation-delay: 300ms;
     }
-    .nav-buttons li:nth-child(5) > a {
+    #nav-buttons li:nth-child(5) > a {
         animation-delay: 400ms;
+    }
+    #menu {
+        display: none;
     }
     @keyframes reveal {
         0% {
@@ -84,13 +112,38 @@
         }
     }
     @media only screen and (max-width: 768px) {
-        #navbar {
-            padding: 0 35px;
+        #menu {
+            z-index: 100;
+            width: var(--menu-size);
+            height: var(--menu-size);
+            display: flex;
+            place-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+            border: none;
+            background: none;
         }
-    }
-    @media only screen and (max-width: 576px) {
-        #navbar {
-            padding: 0 25px;
+        #menu svg {
+            width: 40px;
+            height: 40px;
+        }
+        #nav-buttons {
+            position: fixed;
+            background-color: #F6F6F6;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 50%;
+            flex-flow: column;
+            transform: translateX(100vw);
+            transition: 0.25s all;
+            padding-top: calc(var(--menu-size) + 20px) !important;
+            margin: 0;
+        }
+        #nav-buttons.revealed {
+            transform: translateX(0)
         }
     }
 </style>

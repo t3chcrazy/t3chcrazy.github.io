@@ -1,0 +1,64 @@
+---
+import JobCard from "./JobCard.astro";
+
+const JOBS = {
+    "ShopSe": {
+        tenure: "Oct 2020 - Present",
+        designations: [
+            {
+                title: "Senior Software Engineer",
+                responsibilities: [
+                    "Collaborated with designers to create pixel perfect UI from figma",
+                    "Interacted with product managers to understand and implement business requirements",
+                    "Worked on lending flows for numerous banks and NBFCs which generated significant revenue"
+                ]
+            },
+            {
+                title: "Web Developer",
+                responsibilities: [
+                    "Worked on existing checkout flow and implemented bug fixes, increasing successful transaction conversions",
+                    "Revamped consumer and merchant apps made with React-Native, and implemented new features to improve user growth",
+                    "Created complex forms for loan onboarding flows, created reusable form schemas, which increased producitivity"
+                ]
+            }
+        ],
+        skillsUsed: ["React", "React-Native", "Material-UI", "Bootstrap", "Native Modules", "Jenkins", "Figma", "Google APIs"]
+    },
+    "Sabertooth Technologies": {
+        tenure: "Apr 2020 - Oct 2020",
+        designations: [
+            {
+                title: "Junior Web Developer",
+                responsibilities: [
+                    "Solely created multiple react native prototype projects for demonstration purposes",
+                    "Worked on a pharmacy inventory management app built with Flutter from scratch"
+                ]
+            }
+        ],
+        skillsUsed: ["React-Native", "Bootstrap", "Flutter"]
+    },
+    "ProSavinns": {
+        tenure: "Oct 2019 - Mar 2020",
+        designations: [
+            {
+                title: "Web Developer",
+                responsibilities: [
+                    "Worked on initial landing page and existing stores list view page",
+                    "Woked on initial react-native app, integrated google maps to show list of associated merchants"
+                ]
+            }
+        ],
+        skillsUsed: ["React-Native", "Flask", "HTML", "CSS", "Google APIs"]
+    },
+}
+---
+<section id = "experienceSection">
+    <h1 class = "sectionHeader">Experience</h1>
+    {Object.keys(JOBS).map((company, index) => (
+        <JobCard
+            companyName = {company}
+            companyDescription = {JOBS[company]}
+            isActive = {index === 0}
+        />
+    ))}
+</section>
