@@ -3,8 +3,5 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
     site: "https://t3chcrazy.github.io",
-    output: "static",
-    build: {
-        assets: "assets"
-    }
+    base: "/Portfoliov2"
 });
