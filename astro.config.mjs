@@ -5,6 +5,6 @@ export default defineConfig({
     site: "https://t3chcrazy.github.io",
     output: "static",
     build: {
-        assets: "/assets"
+        assets: "assets"
     }
 });
