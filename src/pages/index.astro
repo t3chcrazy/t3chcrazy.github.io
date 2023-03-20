@@ -5,6 +5,7 @@ import Intro from '../components/Intro.astro';
 import AboutMe from '../components/AboutMe.astro';
 import Experience from '../components/Experience.astro';
 import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Portfolio - Abhishek Prashant">
@@ -14,12 +15,13 @@ import Contact from '../components/Contact.astro';
 		<AboutMe />
 		<Experience />
 		<Contact />
+		<Footer />
 	</main>
 </Layout>
 <script>
-	window.scrollTo({
-		top: 0
-	})
+	window.onbeforeunload = function () {
+		window.scrollTo(0, 0);
+	}
 	const bottomSections = Array.from(document.querySelectorAll("section[id$=Section]")).slice(1)
 	bottomSections.forEach(bottomSection => {
 		const observer = new IntersectionObserver((entries, obs) => {
@@ -28,7 +30,7 @@ import Contact from '../components/Contact.astro';
 				obs.disconnect()
 			}
 		}, {
-			threshold: 0.6
+			threshold: 0.3
 		})
 		observer.observe(bottomSection)
 	})
