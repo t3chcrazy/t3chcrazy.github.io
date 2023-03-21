@@ -2,7 +2,9 @@
 import Svg from '@jasikpark/astro-svg-loader'
 ---
 <nav id = "navbar">
-    <h1>AP</h1>
+    <h1>
+        <a href = "#introSection">AP</a>
+    </h1>
     <ul id = "nav-buttons">
         <li><a class = "underlineLink" href = "/#aboutMeSection">About</a></li>
         <li><a class = "underlineLink" href = "/#experienceSection">Experience</a></li>
@@ -50,6 +52,11 @@ import Svg from '@jasikpark/astro-svg-loader'
 <style>
     :root {
         --menu-size: 40px;
+    }
+    h1 > a {
+        text-decoration-style: none;
+        color: var(--primary);
+        text-decoration-line: none;
     }
     #navbar {
         display: flex;

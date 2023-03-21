@@ -19,9 +19,10 @@ import Footer from '../components/Footer.astro';
 	</main>
 </Layout>
 <script>
-	window.onbeforeunload = function () {
-		window.scrollTo(0, 0);
-	}
+	window.history.replaceState(null, null, window.location.pathname)
+	window.scrollTo({
+		top: 0
+	})
 	const bottomSections = Array.from(document.querySelectorAll("section[id$=Section]")).slice(1)
 	bottomSections.forEach(bottomSection => {
 		const observer = new IntersectionObserver((entries, obs) => {

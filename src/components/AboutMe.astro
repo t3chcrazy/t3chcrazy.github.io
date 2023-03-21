@@ -1,5 +1,6 @@
 ---
-import myImage from '../images/myPhoto.jpg'
+import myImage from '../images/myPhoto.webp'
+import { Image } from '@astrojs/image/components';
 const SKILLS = {
     Languages: ["HTML", "CSS", "JavaScript", "Python", "Dart"],
     Frameworks: ["React", "React-Native", "Flutter", "Bootstrap", "Svelte", "Astro"],
@@ -13,8 +14,8 @@ const SKILLS = {
             <div>
                 Hi! My name is Abhishek Prashant and I enjoy creating delightful experiences for people through code.
                 I got interested in app development after following a <a class = "underlineLink" href = "https://fullstackopen.com/en/" target = "_blank">free course</a> online
-                and got fully committed to it. Now I have recently started taking an interest in backend development as well to become a well rounded developer<br />
-                I am looking forward to grow as a developer
+                and got fully committed to it and never looked back.<br /><br />
+                I am looking forward to grow as a developer and explore more exciting opportunities
             </div>
             <h3>Skills</h3>
             <div class = "skillSection">
@@ -29,8 +30,8 @@ const SKILLS = {
             </div>
         </aside>
         <aside>
-            <!-- <img src = "/favicon.svg" alt = "My photo" /> -->
-            <img
+            {/** @ts-expect-error @astrojs/image doesn't have the types quite right. */}
+            <Image
                 src = {myImage}
                 alt = "Self photo"
                 loading = "lazy"

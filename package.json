@@ -10,7 +10,8 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.0.18"
+		"@astrojs/image": "^0.16.1",
+		"astro": "^2.1.4"
 	},
 	"devDependencies": {
 		"@jasikpark/astro-svg-loader": "^0.1.0"
