@@ -2,7 +2,6 @@
 export interface Props {
 	title: string;
 }
-import ReactLogo from '../images/react.png'
 const { title } = Astro.props;
 ---
 
@@ -11,7 +10,7 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href={ReactLogo} />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<!-- Primary Meta Tags -->
 		<meta name="title" content="Portfolio - Abhishek Prashant">
@@ -22,14 +21,14 @@ const { title } = Astro.props;
 		<meta property="og:url" content="https://t3chcrazy.github.io/">
 		<meta property="og:title" content="Portfolio - Abhishek Prashant">
 		<meta property="og:description" content="Software Engineer experienced with React, React-Native">
-		<meta property="og:image" content={ReactLogo}>
+		<meta property="og:image" content="favicon.svg">
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content="https://t3chcrazy.github.io/">
 		<meta property="twitter:title" content="Portfolio - Abhishek Prashant">
 		<meta property="twitter:description" content="Software Engineer experienced with React, React-Native">
-		<meta property="twitter:image" content={ReactLogo}>
+		<meta property="twitter:image" content="favicon.svg">
 		<meta name="keywords" content="Software Developer,Abhishek Prashant,React,React-Native,Flutter">
 		<meta name="robots" content="index, follow">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
