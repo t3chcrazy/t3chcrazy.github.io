@@ -1,6 +1,6 @@
 ---
 import myImage from '../images/myPhoto.webp'
-import { Image } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 const SKILLS = {
     Languages: ["HTML", "CSS", "JavaScript", "Python", "Dart"],
     Frameworks: ["React", "React-Native", "Flutter", "Bootstrap", "Svelte", "Astro"],
@@ -30,7 +30,6 @@ const SKILLS = {
             </div>
         </aside>
         <aside>
-            {/** @ts-expect-error @astrojs/image doesn't have the types quite right. */}
             <Image
                 src = {myImage}
                 alt = "Self photo"
