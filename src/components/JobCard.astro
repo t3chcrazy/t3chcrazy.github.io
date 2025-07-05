@@ -20,10 +20,12 @@ const { companyDescription: { tenure, designations, skillsUsed }, companyName, i
                 </ul>
             </div>
         ))}
-        <h3 class = "skillHeader">Skills Used</h3>
-        <ul class = "skillContainer">
-            {skillsUsed.map((skill: string) => <li>{skill}</li>)}
-        </ul>
+        {skillsUsed?.length > 0 && (
+            <h3 class = "skillHeader">Skills Used</h3>
+            <ul class = "skillContainer">
+                {skillsUsed.map((skill: string) => <li>{skill}</li>)}
+            </ul>
+        )}
     </div>
 </div>
 <style>
