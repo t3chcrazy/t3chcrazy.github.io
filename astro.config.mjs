@@ -5,9 +5,5 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://t3chcrazy.github.io",
-  integrations: [sitemap({
-    customPages: [
-      "./resume.pdf"
-    ]
-  })],
+  integrations: [sitemap()],
 });
