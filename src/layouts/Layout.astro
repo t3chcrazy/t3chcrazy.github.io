@@ -14,29 +14,49 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<!-- Primary Meta Tags -->
-		<meta name="title" content="Portfolio - Abhishek Prashant">
+		<meta name="title" content={title}>
 		<meta name="description" content="Software Engineer experienced with React, React-Native">
+		<meta name="keywords" content="Abhishek Prashant, t3chcrazy, software engineer, developer portfolio, web developer, GitHub, personal website">
+		<meta name="author" content="Abhishek Prashant">
+		<link rel="canonical" href="https://t3chcrazy.github.io/">
 
 		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website">
+		<meta property="og:title" content={title}>
+		<meta property="og:description" content="Explore the personal portfolio of Abhishek Prashant, software engineer focused on modern full-stack web and mobile development.">
 		<meta property="og:url" content="https://t3chcrazy.github.io/">
-		<meta property="og:title" content="Portfolio - Abhishek Prashant">
-		<meta property="og:description" content="Software Engineer experienced with React, React-Native">
+		<meta property="og:type" content="website">
 		<meta property="og:image" content="favicon.svg">
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content="https://t3chcrazy.github.io/">
-		<meta property="twitter:title" content="Portfolio - Abhishek Prashant">
-		<meta property="twitter:description" content="Software Engineer experienced with React, React-Native">
+		<meta property="twitter:title" content={title}>
+		<meta property="twitter:description" content="Explore the personal portfolio of Abhishek Prashant, software engineer focused on modern full-stack web and mobile development.">
 		<meta property="twitter:image" content="favicon.svg">
 		<meta name="keywords" content="Software Developer,Abhishek Prashant,React,React-Native,Flutter">
 		<meta name="robots" content="index, follow">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta name="language" content="English">
-		<meta name="author" content="Abhishek Prashant">
 		<title>{title}</title>
 	</head>
+	<script is:inline type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Abhishek Prashant",
+		"url": "https://t3chcrazy.github.io/",
+		"sameAs": [
+			"https://github.com/t3chcrazy",
+			"https://linkedin.com/in/abhishek-prashant-app-dev/",
+			"https://toptal.com/resume/abhishek-prashant"
+		],
+		"jobTitle": "Software Engineer",
+		"worksFor": {
+			"@type": "Organization",
+			"name": "Freelance / Independent"
+		}
+	}
+	</script>
 	<body>
 		<slot />
 	</body>
