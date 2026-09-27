@@ -2,9 +2,9 @@
 const CARDS = [
     {
         id: "work",
-        label: "Work",
-        title: "See my selected works",
-        desc: "Selected work across a range of industries.",
+        label: "Experience",
+        title: "See my experience",
+        desc: "Six years of shipping across a range of industries.",
         href: "#workSection",
         accent: "var(--color-blue)",
         fly: "left"
@@ -73,20 +73,19 @@ const CARDS = [
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow-sm);
         transition: transform var(--duration-spring) var(--spring), opacity var(--duration-spring) var(--spring), box-shadow var(--duration-base) var(--ease);
+    }
+    /* Fly-in start states only when JS runs, so no-JS visitors still see the cards */
+    :global(html.js) .infoCard:not(.settled) {
         opacity: 0;
     }
-    .infoCard.fly-left {
+    :global(html.js) .infoCard.fly-left:not(.settled) {
         transform: translateX(-60px) rotate(-4deg);
     }
-    .infoCard.fly-right {
+    :global(html.js) .infoCard.fly-right:not(.settled) {
         transform: translateX(60px) rotate(4deg);
     }
-    .infoCard.fly-up {
+    :global(html.js) .infoCard.fly-up:not(.settled) {
         transform: translateY(40px) scale(0.96);
-    }
-    .infoCard.settled {
-        opacity: 1;
-        transform: none;
     }
     .infoCard:hover {
         box-shadow: var(--shadow-md);
@@ -141,9 +140,11 @@ const CARDS = [
         }
     }
     @media (prefers-reduced-motion: reduce) {
-        .infoCard {
+        :global(html.js) .infoCard:not(.settled) {
             opacity: 1;
             transform: none;
+        }
+        .infoCard {
             transition: none;
         }
     }

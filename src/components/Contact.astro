@@ -5,7 +5,7 @@ const SOCIALS = [
     {
         icon: import('../images/mail.svg?raw'),
         link: "mailto:abhishekprashant09@gmail.com",
-        alt: "Mail",
+        alt: "Email",
         bg: "var(--color-blue)",
         event: "contact-mail-click"
     },
@@ -18,31 +18,30 @@ const SOCIALS = [
     },
     {
         icon: import('../images/linkedin.svg?raw'),
-        link: "https://linkedin.com/in/abhishek-prashant-92b152a9",
-        alt: "Linkedin",
+        link: "https://www.linkedin.com/in/abhishek-prashant-app-dev/",
+        alt: "LinkedIn",
         bg: "var(--color-yellow)",
         event: "contact-linkedin-click"
     },
     {
         icon: import('../images/github.svg?raw'),
         link: "https://github.com/t3chcrazy",
-        alt: "Github",
+        alt: "GitHub",
         bg: "var(--color-lime)",
         event: "contact-github-click"
     }
 ]
 ---
-<section id = "contactSection" class = "fullHeightSection">
+<section id = "contactSection">
     <div class = "bgDot dotPurple" aria-hidden = "true"></div>
     <div class = "bgDot dotPowder" aria-hidden = "true"></div>
     <div class = "bgDot dotLime" aria-hidden = "true"></div>
-    <p class = "handwritten">Happy to connect!</p>
     <div class = "bottomSection">
         <h2 class = "display3">Get in touch</h2>
-        <div>
-            Open to new opportunities and always happy to connect with like-minded people
-        </div>
-        <a class = "ctaPrimary" href = "mailto:abhishekprashant09@gmail.com">Say hello</a>
+        <p>
+            Open to new opportunities and always happy to connect with like-minded people.
+        </p>
+        <a class = "ctaPrimary" href = "mailto:abhishekprashant09@gmail.com" data-goatcounter-click = "contact-email-cta">Email me</a>
     </div>
     <ul class = "socialsList">
         {SOCIALS.map(social => (
@@ -141,7 +140,7 @@ const SOCIALS = [
         transform: translateY(-5px) rotate(-6deg);
         box-shadow: var(--shadow-md);
     }
-    .socialsList li {
+    :global(html.js) .socialsList li {
         opacity: 0;
     }
     #contactSection.revealed .socialsList li {
@@ -169,20 +168,10 @@ const SOCIALS = [
             transform: none;
         }
     }
-    .handwritten {
-        font-family: var(--font-hand);
-        font-size: clamp(22px, 2.5vw, 28px);
-        font-weight: 600;
-        color: var(--primary);
-        margin: 0;
-        position: relative;
-        z-index: 1;
-    }
     .bottomSection {
         display: inherit;
         flex-flow: column;
         align-items: center;
-        margin-top: 12px;
         margin-bottom: 40px;
         position: relative;
         z-index: 1;
@@ -190,12 +179,12 @@ const SOCIALS = [
     .bottomSection > h2 {
         color: var(--primary);
     }
-    .bottomSection > div {
+    .bottomSection > p {
         color: var(--secondary);
-        line-height: 1.4;
-        width: 60%;
+        line-height: 1.5;
+        max-width: 50ch;
         text-align: center;
-        margin-top: 1rem;
+        margin: 1rem 0 0;
     }
     .ctaPrimary {
         display: inline-flex;
@@ -220,7 +209,7 @@ const SOCIALS = [
             animation: none;
             opacity: 1;
         }
-        .socialsList li {
+        :global(html.js) .socialsList li {
             opacity: 1;
             animation: none;
         }

@@ -39,13 +39,15 @@ const { job: { company, tenure, title, highlight, skills, bg, points }, index } 
         grid-template-columns: 28px 1fr;
         column-gap: 28px;
         padding-bottom: 48px;
-        opacity: 0;
-        transform: translateY(20px);
         transition: opacity var(--duration-slow) var(--spring), transform var(--duration-slow) var(--spring);
         transition-delay: var(--reveal-delay, 0ms);
     }
     .timelineItem:last-child {
         padding-bottom: 0;
+    }
+    :global(html.js) .timelineItem:not(.itemRevealed) {
+        opacity: 0;
+        transform: translateY(20px);
     }
     .timelineItem.itemRevealed {
         opacity: 1;
@@ -155,7 +157,7 @@ const { job: { company, tenure, title, highlight, skills, bg, points }, index } 
         }
     }
     @media (prefers-reduced-motion: reduce) {
-        .timelineItem {
+        :global(html.js) .timelineItem:not(.itemRevealed) {
             opacity: 1;
             transform: none;
         }

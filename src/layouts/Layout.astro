@@ -6,30 +6,30 @@ export interface Props {
 	title: string;
 }
 const { title } = Astro.props;
+const description = "Abhishek Prashant is a full stack software engineer with 6+ years building React, React Native, and Go apps. Open to freelance and full-time work.";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta name="google-site-verification" content="1Ivpmo3wIqWk48mmbZWLDzULDAiaHRa-kUv9Jtzu5h0" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<title>{title}</title>
+		<meta name="description" content={description}>
+		<link rel="canonical" href="https://abhishekprashant.dev/">
+		<meta name="author" content="Abhishek Prashant">
+		<meta name="robots" content="index, follow">
+		<meta name="google-site-verification" content="1Ivpmo3wIqWk48mmbZWLDzULDAiaHRa-kUv9Jtzu5h0" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<!-- Caveat is decorative, used only below the fold: load it without blocking render or competing with critical fonts -->
 		<link rel="preload" as="style" href={caveatCssUrl} onload="this.onload=null;this.rel='stylesheet'" />
 		<noscript><link rel="stylesheet" href={caveatCssUrl} /></noscript>
 		<meta name="generator" content={Astro.generator} />
-		<!-- Primary Meta Tags -->
-		<meta name="title" content={title}>
-		<meta name="description" content="Abhishek Prashant is a full stack software engineer with 6+ years building production React, React Native, and Go applications, working with AI agents and agentic development tools (Claude Code, MCP) as part of his day-to-day workflow. Available for freelance and full-time work.">
-		<meta name="keywords" content="Abhishek Prashant, t3chcrazy, full stack software engineer, frontend developer, backend developer, software engineer, freelance developer, React developer, React Native developer, TypeScript developer, Go developer, Golang developer, web developer, mobile developer, agentic development, AI agents, AI-assisted development, Claude Code, MCP, LLM tools, developer portfolio, Bengaluru software engineer">
-		<meta name="author" content="Abhishek Prashant">
-		<link rel="canonical" href="https://abhishekprashant.dev/">
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:title" content={title}>
-		<meta property="og:description" content="Full stack software engineer with 6+ years building production React, React Native, and Go applications, working with AI agents and agentic development tools as part of the day-to-day workflow. Open to freelance and full-time opportunities.">
+		<meta property="og:description" content={description}>
 		<meta property="og:url" content="https://abhishekprashant.dev/">
 		<meta property="og:type" content="website">
 		<meta property="og:image" content="https://abhishekprashant.dev/og-image.jpg">
@@ -38,48 +38,52 @@ const { title } = Astro.props;
 		<meta property="og:image:alt" content="Abhishek Prashant, full stack software engineer">
 		<meta property="og:locale" content="en_US">
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:url" content="https://abhishekprashant.dev/">
-		<meta property="twitter:title" content={title}>
-		<meta property="twitter:description" content="Full stack software engineer with 6+ years building production React, React Native, and Go applications, working with AI agents and agentic development tools as part of the day-to-day workflow. Open to freelance and full-time opportunities.">
-		<meta property="twitter:image" content="https://abhishekprashant.dev/og-image.jpg">
-		<meta name="robots" content="index, follow">
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<meta name="language" content="English">
-		<title>{title}</title>
+		<!-- Twitter: og-image is square, so use the square "summary" card -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content={title}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content="https://abhishekprashant.dev/og-image.jpg">
+		<meta name="twitter:image:alt" content="Abhishek Prashant, full stack software engineer">
 		<script is:inline>
 			(function () {
+				var root = document.documentElement;
+				root.classList.add("js");
 				var stored = localStorage.getItem("theme");
 				var theme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-				document.documentElement.setAttribute("data-theme", theme);
+				root.setAttribute("data-theme", theme);
 			})();
 		</script>
-	</head>
-	<script is:inline type="application/ld+json">
-	{
-		"@context": "https://schema.org",
-		"@type": "Person",
-		"name": "Abhishek Prashant",
-		"alternateName": "t3chcrazy",
-		"url": "https://abhishekprashant.dev/",
-		"image": "https://abhishekprashant.dev/og-image.jpg",
-		"sameAs": [
-			"https://github.com/t3chcrazy",
-			"https://linkedin.com/in/abhishek-prashant-app-dev/",
-			"https://toptal.com/resume/abhishek-prashant"
-		],
-		"jobTitle": "Full Stack Software Engineer",
-		"description": "Full stack software engineer specializing in React, React Native, and Go, working with AI agents and agentic development tools as part of the day-to-day workflow. Available for freelance and full-time opportunities.",
-		"knowsAbout": ["React", "React Native", "TypeScript", "JavaScript", "Go", "Golang", "REST APIs", "Frontend Development", "Full Stack Development", "Mobile Development", "CI/CD", "Agentic Development", "AI-Assisted Development", "AI Agents", "Claude Code", "Model Context Protocol"],
-		"worksFor": {
-			"@type": "Organization",
-			"name": "Qlik"
+		<script is:inline type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Abhishek Prashant",
+			"alternateName": "t3chcrazy",
+			"url": "https://abhishekprashant.dev/",
+			"image": "https://abhishekprashant.dev/og-image.jpg",
+			"sameAs": [
+				"https://github.com/t3chcrazy",
+				"https://www.linkedin.com/in/abhishek-prashant-app-dev/",
+				"https://stackoverflow.com/users/4741470/abhishek-prashant",
+				"https://www.toptal.com/resume/abhishek-prashant"
+			],
+			"jobTitle": "Full Stack Software Engineer",
+			"description": "Full stack software engineer specializing in React, React Native, and Go, working with AI agents and agentic development tools as part of the day-to-day workflow. Available for freelance and full-time opportunities.",
+			"knowsAbout": ["React", "React Native", "TypeScript", "JavaScript", "Go", "Golang", "REST APIs", "Frontend Development", "Full Stack Development", "Mobile Development", "CI/CD", "Agentic Development", "AI-Assisted Development", "AI Agents", "Claude Code", "Model Context Protocol"],
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Bengaluru",
+				"addressCountry": "IN"
+			},
+			"worksFor": {
+				"@type": "Organization",
+				"name": "Qlik",
+				"url": "https://www.qlik.com/"
+			}
 		}
-	}
-	</script>
-	<script data-goatcounter="https://t3chcrazy.goatcounter.com/count"
-    async src="//gc.zgo.at/count.js"></script>
+		</script>
+		<script is:inline data-goatcounter="https://t3chcrazy.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+	</head>
 	<body>
 		<a href="#main" class="skipLink">Skip to main content</a>
 		<slot />
@@ -103,8 +107,6 @@ const { title } = Astro.props;
 		--color-light: rgb(247, 247, 247);
 		--color-white: rgb(255, 255, 255);
 		--color-dark: rgb(29, 29, 29);
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 
 		/** Typography: Uncut Sans Variable substituted with Inter (closest freely-licensable match), self-hosted */
 		--font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
@@ -128,7 +130,6 @@ const { title } = Astro.props;
 
 		/** Theme: light (default) */
 		--brand-green: #0d9488;
-		--brand-green-strong: #0b7c72;
 		--cta-bg: var(--color-dark);
 		--cta-bg-hover: #3a3a3a;
 		--cta-text: var(--color-white);
@@ -146,7 +147,6 @@ const { title } = Astro.props;
 	}
 	:root[data-theme="dark"] {
 		--brand-green: #2dd4bf;
-		--brand-green-strong: #5eead4;
 		--cta-bg: var(--color-white);
 		--cta-bg-hover: #e6e6e6;
 		--cta-text: var(--color-dark);
@@ -186,7 +186,7 @@ const { title } = Astro.props;
 		font-weight: 500;
 		letter-spacing: -0.05em;
 		line-height: 1.05;
-		font-size: clamp(38px, 6.5vw, 90px);
+		font-size: clamp(38px, 5.5vw, 72px);
 	}
 	.display3 {
 		font-weight: 500;
@@ -209,6 +209,7 @@ const { title } = Astro.props;
 	}
 	.fullHeightSection {
 		min-height: 100vh;
+		min-height: 100dvh;
 		padding: 2rem 0;
 	}
 	.skipLink {
@@ -253,12 +254,13 @@ const { title } = Astro.props;
 		box-shadow: var(--focus-ring);
 		border-radius: var(--radius-sm);
 	}
-	section[id$='Section']:not(:first-child) {
+	/* Hidden reveal states only apply when JS runs (html.js set in <head>), so no-JS visitors still see content */
+	html.js section[id$='Section']:not(:first-child) {
 		opacity: 0;
 		transform: translateY(30px);
 		transition: opacity var(--duration-slow) var(--ease), transform var(--duration-slow) var(--ease);
 	}
-	section[id$='Section']:not(:first-child).revealed {
+	html.js section[id$='Section']:not(:first-child).revealed {
 		transform: translateY(0px);
 		opacity: 1;
 	}
@@ -279,7 +281,7 @@ const { title } = Astro.props;
 			transition-duration: 0.001ms !important;
 			scroll-behavior: auto !important;
 		}
-		section[id$='Section']:not(:first-child) {
+		html.js section[id$='Section']:not(:first-child) {
 			opacity: 1;
 			transform: none;
 		}

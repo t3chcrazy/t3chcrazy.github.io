@@ -19,14 +19,10 @@ import Footer from '../components/Footer.astro';
 		<Process />
 		<AboutMe />
 		<Contact />
-		<Footer />
 	</main>
+	<Footer />
 </Layout>
 <script>
-	window.history.replaceState(null, "", window.location.pathname)
-	window.scrollTo({
-		top: 0
-	})
 	const bottomSections = Array.from(document.querySelectorAll("section[id$=Section]")).slice(1)
 	bottomSections.forEach(bottomSection => {
 		const observer = new IntersectionObserver((entries, obs) => {

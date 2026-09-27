@@ -2,7 +2,7 @@
 const INDUSTRIES = [
     {
         name: "Fintech & Lending",
-        blurb: "Shipped NTB lending flows for banks and NBFCs like HDFC, ICICI, and Kotak — production code driving real revenue.",
+        blurb: "Shipped NTB lending flows for banks and NBFCs like HDFC, ICICI, and Kotak, driving nearly 30% of company revenue.",
         bg: "var(--color-pink)"
     },
     {
@@ -17,20 +17,20 @@ const INDUSTRIES = [
     },
     {
         name: "Local Commerce",
-        blurb: "Helped local merchants get discovered through maps-based apps for everyday users.",
+        blurb: "Built a maps-based app that surfaces nearby partner merchants to shoppers.",
         bg: "var(--color-lime)"
     }
 ]
 ---
 <section id = "overviewSection">
     <div class = "processIntro">
-        <h2 class = "display3">High-quality work with real value considered.</h2>
+        <h2 class = "display3">How I work</h2>
         <p class = "bodyLg">
-            My approach revolves around maximizing productivity and craft with clarity and focus, starting from thorough requirement gathering, through careful implementation, to code that's built to last.
+            I start by pinning down requirements, then build carefully and ship code that stays easy to change.
         </p>
     </div>
     <div class = "industriesBlock">
-        <h3 class = "handwritten">Industries I've shipped in</h3>
+        <h3 class = "subheading">Industries I've shipped in</h3>
         <ul class = "industriesRow">
             {INDUSTRIES.map((industry, i) => (
                 <li style = {`--industry-bg:${industry.bg};--industry-i:${i}`}>
@@ -78,12 +78,10 @@ const INDUSTRIES = [
         align-items: center;
         gap: 24px;
     }
-    .handwritten {
-        font-family: var(--font-hand);
-        font-size: clamp(22px, 2.5vw, 28px);
+    .subheading {
+        font-size: 1.25rem;
         font-weight: 600;
         color: var(--primary);
-        margin: 0;
     }
     .industriesRow {
         list-style: none;
@@ -104,9 +102,11 @@ const INDUSTRIES = [
         background-color: var(--bg-elevated);
         border: 1px solid var(--border-color);
         box-shadow: var(--shadow-sm);
+        transition: transform var(--duration-spring) var(--spring), opacity var(--duration-spring) var(--spring), box-shadow var(--duration-fast) var(--ease);
+    }
+    :global(html.js) .industriesRow > li:not(.industryIn) {
         opacity: 0;
         transform: translateY(18px) scale(0.96);
-        transition: transform var(--duration-spring) var(--spring), opacity var(--duration-spring) var(--spring), box-shadow var(--duration-fast) var(--ease);
     }
     .industriesRow > li.industryIn {
         opacity: 1;
@@ -141,9 +141,11 @@ const INDUSTRIES = [
         }
     }
     @media (prefers-reduced-motion: reduce) {
-        .industriesRow > li {
+        :global(html.js) .industriesRow > li:not(.industryIn) {
             opacity: 1;
             transform: none;
+        }
+        .industriesRow > li {
             transition: none;
         }
     }

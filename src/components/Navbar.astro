@@ -2,7 +2,7 @@
 import Svg from '@jasikpark/astro-svg-loader'
 
 const LINKS = [
-    { href: "/#workSection", label: "Work", id: "workSection" },
+    { href: "/#workSection", label: "Experience", id: "workSection" },
     { href: "/#overviewSection", label: "Overview", id: "overviewSection" },
     { href: "/#aboutSection", label: "About", id: "aboutSection" },
     { href: "/#contactSection", label: "Contact", id: "contactSection" },
@@ -11,7 +11,7 @@ const LINKS = [
 <nav id = "navbar" aria-label = "Primary">
     <div class = "navInner">
         <p class = "brandMark">
-            <a href = "#heroSection" title = "Abhishek Prashant, home">AP</a>
+            <a href = "/#heroSection" title = "Abhishek Prashant, home">AP</a>
         </p>
         <ul id = "nav-buttons">
             {LINKS.map(link => (
@@ -29,10 +29,10 @@ const LINKS = [
                     <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 1020.354 15.354z"></path>
                 </svg>
             </button>
-            <button id = "menu" type="button" aria-expanded = "false" aria-controls = "nav-buttons">
+            <button id = "menu" type="button" aria-label = "Toggle navigation menu" aria-expanded = "false" aria-controls = "nav-buttons">
                 <Svg
                     src = {import("../images/hamburger-menu.svg?raw")}
-                    aria-label = "Toggle navigation menu"
+                    aria-hidden = "true"
                 />
             </button>
         </div>
@@ -267,6 +267,9 @@ const LINKS = [
     #nav-buttons li:nth-child(4) > a {
         animation-delay: 240ms;
     }
+    #nav-buttons li:nth-child(5) > a {
+        animation-delay: 320ms;
+    }
     #menu {
         display: none;
     }
@@ -312,6 +315,7 @@ const LINKS = [
             right: 0;
             top: 0;
             height: 100vh;
+            height: 100dvh;
             width: min(70%, 300px);
             flex-flow: column;
             align-items: flex-start;

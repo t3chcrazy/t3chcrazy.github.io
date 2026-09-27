@@ -20,8 +20,8 @@ const PILL_COLORS = ["var(--color-blue)", "var(--color-yellow)", "var(--color-gr
             </p>
             <p class = "bio">
                 My journey has been shaped by shipping real products end to end, from lending flows used by banks and NBFCs,
-                to consumer apps and internal dashboards that teams rely on daily. Lately I build with AI agents in the loop &mdash;
-                AI SDLC, MCP, and custom skills &mdash; to move faster while keeping the bar high on quality. I'm always looking to grow and explore new opportunities.
+                to consumer apps and internal dashboards that teams rely on daily. Lately I build with AI agents in the loop
+                (AI SDLC, MCP, and custom skills) to move faster while keeping the bar high on quality. I'm always looking to grow and explore new opportunities.
             </p>
         </aside>
         <aside class = "aboutImage">
@@ -29,17 +29,15 @@ const PILL_COLORS = ["var(--color-blue)", "var(--color-yellow)", "var(--color-gr
                 src = {myImage}
                 alt = "Portrait of Abhishek Prashant"
                 loading = "lazy"
-                width = {420}
-                height = {420}
+                width = {320}
+                height = {320}
+                densities = {[1, 2]}
             />
-            <span class = "availabilityBadge">
-                💻  Multitasking
-            </span>
         </aside>
     </div>
     <div class = "sectionDivider" aria-hidden = "true"></div>
     <div class = "capabilities">
-        <h3 class = "handwritten">My capabilities</h3>
+        <h3 class = "subheading">My capabilities</h3>
         <p class = "bodyLg">
             The skills I bring are tailored to <strong>real product needs</strong>, from pixel-perfect UI to scalable backend systems.
         </p>
@@ -100,6 +98,11 @@ const PILL_COLORS = ["var(--color-blue)", "var(--color-yellow)", "var(--color-gr
         color: var(--primary);
         margin: 0;
     }
+    .subheading {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary);
+    }
     .leftAlign {
         text-align: left;
         margin: 0;
@@ -125,30 +128,6 @@ const PILL_COLORS = ["var(--color-blue)", "var(--color-yellow)", "var(--color-gr
     }
     .aboutImage img:hover {
         transform: rotate(-2deg) scale(1.02);
-    }
-    .availabilityBadge {
-        position: absolute;
-        bottom: -14px;
-        left: -14px;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 18px;
-        border-radius: 999px;
-        background-color: var(--bg-elevated);
-        border: 1px solid var(--border-color);
-        box-shadow: var(--shadow-md);
-        color: var(--primary);
-        font-size: 0.85rem;
-        font-weight: 600;
-        white-space: nowrap;
-    }
-    .availabilityDot {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background-color: var(--brand-green);
-        flex-shrink: 0;
     }
     .capabilities {
         display: flex;
@@ -187,9 +166,11 @@ const PILL_COLORS = ["var(--color-blue)", "var(--color-yellow)", "var(--color-gr
         color: var(--color-dark);
         font-size: 0.9rem;
         font-weight: 500;
+        transition: transform var(--duration-fast) var(--spring), opacity var(--duration-base) var(--spring);
+    }
+    :global(html.js) li:not(.pillIn) {
         opacity: 0;
         transform: translateY(10px);
-        transition: transform var(--duration-fast) var(--spring), opacity var(--duration-base) var(--spring);
     }
     li.pillIn {
         opacity: 1;
@@ -225,7 +206,12 @@ const PILL_COLORS = ["var(--color-blue)", "var(--color-yellow)", "var(--color-gr
         .aboutText {
             align-items: center;
         }
-        .leftAlign {
+        .subheading {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--primary);
+    }
+    .leftAlign {
             text-align: center;
         }
         .aboutImage img {
@@ -237,9 +223,11 @@ const PILL_COLORS = ["var(--color-blue)", "var(--color-yellow)", "var(--color-gr
         }
     }
     @media (prefers-reduced-motion: reduce) {
-        .skillSection li {
+        :global(html.js) li:not(.pillIn) {
             opacity: 1;
             transform: none;
+        }
+        .skillSection li {
             transition: none;
         }
     }
