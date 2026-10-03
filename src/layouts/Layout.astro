@@ -21,6 +21,7 @@ const description = "Abhishek Prashant is a full stack software engineer with 6+
 		<meta name="robots" content="index, follow">
 		<meta name="google-site-verification" content="1Ivpmo3wIqWk48mmbZWLDzULDAiaHRa-kUv9Jtzu5h0" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="alternate" type="application/rss+xml" title="Auxesis blog" href="/blog/feed.xml" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<!-- Caveat is decorative, used only below the fold: load it without blocking render or competing with critical fonts -->
 		<link rel="preload" as="style" href={caveatCssUrl} onload="this.onload=null;this.rel='stylesheet'" />
@@ -57,11 +58,13 @@ const description = "Abhishek Prashant is a full stack software engineer with 6+
 		{
 			"@context": "https://schema.org",
 			"@type": "Person",
+			"@id": "https://abhishekprashant.dev/#person",
 			"name": "Abhishek Prashant",
 			"alternateName": "t3chcrazy",
 			"url": "https://abhishekprashant.dev/",
 			"image": "https://abhishekprashant.dev/og-image.jpg",
 			"sameAs": [
+				"https://abhishekprashant.dev/blog",
 				"https://github.com/t3chcrazy",
 				"https://www.linkedin.com/in/abhishek-prashant-app-dev/",
 				"https://stackoverflow.com/users/4741470/abhishek-prashant",
