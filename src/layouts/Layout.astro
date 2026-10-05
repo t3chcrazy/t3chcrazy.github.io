@@ -1,5 +1,6 @@
 ---
 import '@fontsource-variable/inter/opsz.css';
+import interLatinUrl from '@fontsource-variable/inter/files/inter-latin-opsz-normal.woff2?url';
 import caveatCssUrl from '@fontsource/caveat/600.css?url';
 
 export interface Props {
@@ -23,6 +24,8 @@ const description = "Abhishek Prashant is a full stack software engineer with 6+
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="alternate" type="application/rss+xml" title="Auxesis blog" href="/blog/feed.xml" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- Inter (latin) renders the hero headline, the LCP element: fetch it in parallel with the HTML -->
+		<link rel="preload" as="font" type="font/woff2" href={interLatinUrl} crossorigin />
 		<!-- Caveat is decorative, used only below the fold: load it without blocking render or competing with critical fonts -->
 		<link rel="preload" as="style" href={caveatCssUrl} onload="this.onload=null;this.rel='stylesheet'" />
 		<noscript><link rel="stylesheet" href={caveatCssUrl} /></noscript>
