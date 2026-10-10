@@ -11,7 +11,7 @@ const LINKS = [
 <nav id = "navbar" aria-label = "Primary">
     <div class = "navInner">
         <p class = "brandMark">
-            <a href = "/#heroSection" title = "Abhishek Prashant, home">AP</a>
+            <a href = "/#heroSection" title = "Abhishek Prashant, home"><img src = "/favicon.svg" alt = "Abhishek Prashant" width = "36" height = "36" /></a>
         </p>
         <ul id = "nav-buttons">
             {LINKS.map(link => (
@@ -163,6 +163,10 @@ const LINKS = [
         text-decoration-line: none;
         font-weight: 600;
         letter-spacing: -0.02em;
+        display: block;
+    }
+    .brandMark img {
+        display: block;
     }
     #navbar {
         z-index: 100;
